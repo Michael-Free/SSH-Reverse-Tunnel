@@ -1,0 +1,12 @@
+[Unit]
+Description=Reverse SSH Tunnel Service
+After=multi-user.target network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/ssh-tunnel.sh -h <myHost> -u <myUser> -l <localPort> -r <remotePort>
+User=myUser
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
